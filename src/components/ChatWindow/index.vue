@@ -1,0 +1,43 @@
+<template>
+    <v-container pa-0 class="chat" fill-height>
+        <v-layout text-xs-center>
+            <v-flex class="chat-list" xs2>
+                <ChatList/>
+            </v-flex>
+            <v-flex class="current-chat" xs10>
+                <CurrentChat/>
+            </v-flex>
+        </v-layout>
+    </v-container>
+</template>
+
+<script lang="ts">
+    import { Component, Prop, Vue } from 'vue-property-decorator';
+    import CurrentChat from '@/components/ChatWindow/CurrentChat/index.vue';
+    import ChatList from '@/components/ChatWindow/ChatList.vue';
+
+    @Component(
+        { components: { ChatList, CurrentChat } },
+    )
+    export default class ChatWindow extends Vue {
+        @Prop() private msg!: string;
+
+    }
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="scss">
+    .chat {
+        border: solid red;
+    }
+
+    .chat-list {
+        border: solid blue;
+
+    }
+
+    .current-chat {
+        border: solid green;
+    }
+
+</style>

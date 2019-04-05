@@ -107,7 +107,7 @@
                     href: 'https://vuetifyjs.com',
                 },
                 {
-                    text: 'Chat',
+                    text: 'index.vue',
                     href: 'https://community.vuetifyjs.com',
                 },
                 {
