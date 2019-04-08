@@ -1,27 +1,25 @@
 <template>
-    <v-container fill-height>
+    <v-container fill-height pb-0>
         <v-layout column>
             <v-flex>
-                <Messages/>
+                <Messages />
             </v-flex>
             <v-flex shrink>
-                <NewMessage/>
+                <NewMessage />
             </v-flex>
         </v-layout>
     </v-container>
 </template>
 
 <script lang="ts">
-    import { Component, Vue } from 'vue-property-decorator';
-    import Messages from '@/components/ChatWindow/CurrentChat/Messages.vue';
-    import NewMessage from '@/components/ChatWindow/CurrentChat/NewMessage.vue';
+import { Component, Vue } from 'vue-property-decorator';
+import Messages from '@/components/ChatWindow/CurrentChat/Messages.vue';
+import NewMessage from '@/components/ChatWindow/CurrentChat/NewMessage.vue';
 
-    @Component({
-        components: { Messages, NewMessage },
-    })
-    export default class CurrentChat extends Vue {
-
-    }
+@Component({
+    components: { Messages, NewMessage },
+})
+export default class CurrentChat extends Vue {}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
