@@ -1,38 +1,48 @@
 <template>
-    <form v-on:submit.prevent="submit">
+    <form v-stream:submit.prevent="submit$">
         <v-text-field
             label="Solo"
             placeholder="Placeholder"
             solo
-            v-model="message"
+            v-stream:input="input$"
         ></v-text-field>
+        <p>{{ message$ }}</p>
     </form>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { map } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { withLatestFrom } from 'rxjs/internal/operators/withLatestFrom';
+import { Action } from 'vuex-class';
 
+interface TextInputEvent {
+    event: {
+        msg: string;
+    };
+}
 @Component<NewMessage>({
     subscriptions() {
+        const message$ = this.input$.pipe(map(({ event: { msg } }) => msg));
+
+        this.submit$
+            .pipe(
+                withLatestFrom(message$),
+                map(([, message]) => message),
+            )
+            .subscribe(this.sendMessage);
+
         return {
-            message: this.$watchAsObservable('message').pipe(
-                map((mes) => {
-                    console.log(mes);
-                    return 1;
-                }),
-            ),
+            message$,
         };
     },
 })
 export default class NewMessage extends Vue {
-    public message = '';
-
-    public submit() {
-        console.log(this.message);
-    }
+    private input$: Subject<TextInputEvent> = new Subject();
+    private submit$: Subject<any> = new Subject();
+    @Action('sendMessage') private sendMessage!: () => void;
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss"></style>
