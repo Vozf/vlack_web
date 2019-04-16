@@ -1,5 +1,5 @@
 import { MutationTree } from 'vuex';
-import { Message, MessagesState } from '@/store/store.interface';
+import { Message, MessagesState } from '@/store/store.types';
 
 export const mutations: MutationTree<MessagesState> = {
     updateMessages(state, messages: Message[]) {

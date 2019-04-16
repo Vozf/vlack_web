@@ -14,7 +14,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import CurrentChat from '@/components/ChatWindow/CurrentChat/index.vue';
-import ChatList from '@/components/ChatWindow/ChatList.vue';
+import ChatList from '@/components/ChatWindow/ChatList/index.vue';
 
 @Component({ components: { ChatList, CurrentChat } })
 export default class ChatWindow extends Vue {
