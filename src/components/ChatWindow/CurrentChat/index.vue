@@ -1,7 +1,7 @@
 <template>
     <v-container fill-height pb-0>
         <v-layout column>
-            <v-flex>
+            <v-flex class="messages">
                 <Messages />
             </v-flex>
             <v-flex shrink>
@@ -23,4 +23,9 @@ export default class CurrentChat extends Vue {}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.messages {
+    height: 0;
+    overflow-y: auto;
+}
+</style>
