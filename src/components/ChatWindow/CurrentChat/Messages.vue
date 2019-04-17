@@ -1,15 +1,11 @@
 <template>
-    <v-layout>
-        <v-flex>
-            <v-list>
-                <Message
-                    v-for="(item, index) in items"
-                    v-bind:item="item"
-                    :key="index"
-                />
-            </v-list>
-        </v-flex>
-    </v-layout>
+    <v-list>
+        <Message
+            v-for="(item, index) in items"
+            v-bind:item="item"
+            :key="index"
+        />
+    </v-list>
 </template>
 
 <script lang="ts">

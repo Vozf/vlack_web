@@ -1,7 +1,7 @@
 <template>
     <v-container fill-height pb-0>
         <v-layout column>
-            <v-flex class="messages">
+            <v-flex class="messages" v-chat-scroll>
                 <Messages />
             </v-flex>
             <v-flex shrink>
