@@ -15,6 +15,8 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import Message from '@/components/ChatWindow/CurrentChat/Message.vue';
+import { Message as MessageType } from '@/store/store.types';
+
 @Component({
     components: { Message },
 })
@@ -37,7 +39,7 @@ export default class Messages extends Vue {
         },
     ];
     public longItems = Array(100).fill(this.smallItems[0]);
-    public items = this.longItems;
+    public items: MessageType[] = this.smallItems;
 }
 </script>
 
