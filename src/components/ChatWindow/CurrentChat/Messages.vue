@@ -19,7 +19,7 @@ import Message from '@/components/ChatWindow/CurrentChat/Message.vue';
     components: { Message },
 })
 export default class Messages extends Vue {
-    public small_items = [
+    public smallItems = [
         {
             avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
             message: 'Hello',
@@ -36,8 +36,8 @@ export default class Messages extends Vue {
             author: 'Masha',
         },
     ];
-    public long_items = Array(100).fill(this.small_items[0]);
-    public items = this.long_items;
+    public longItems = Array(100).fill(this.smallItems[0]);
+    public items = this.longItems;
 }
 </script>
 
