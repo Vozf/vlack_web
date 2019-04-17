@@ -1,10 +1,10 @@
 <template>
     <v-container fill-height pb-0>
-        <v-layout column>
-            <v-flex class="messages" v-chat-scroll>
+        <v-layout column justify-end>
+            <v-flex class="messages">
                 <Messages />
             </v-flex>
-            <v-flex shrink>
+            <v-flex shrink mt-3>
                 <NewMessage />
             </v-flex>
         </v-layout>
@@ -26,6 +26,5 @@ export default class CurrentChat extends Vue {}
 <style scoped lang="scss">
 .messages {
     height: 0;
-    overflow-y: auto;
 }
 </style>

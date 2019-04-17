@@ -1,11 +1,15 @@
 <template>
-    <v-list>
-        <Message
-            v-for="(item, index) in items"
-            v-bind:item="item"
-            :key="index"
-        />
-    </v-list>
+    <v-layout justify-end fill-height column>
+        <v-flex shrink class="mes" v-chat-scroll>
+            <v-list>
+                <Message
+                    v-for="(item, index) in items"
+                    :item="item"
+                    :key="index"
+                />
+            </v-list>
+        </v-flex>
+    </v-layout>
 </template>
 
 <script lang="ts">
@@ -15,32 +19,31 @@ import Message from '@/components/ChatWindow/CurrentChat/Message.vue';
     components: { Message },
 })
 export default class Messages extends Vue {
-    public items = [
-        { header: 'Today' },
+    public small_items = [
         {
             avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-            title: 'Brunch this weekend?',
-            subtitle:
-                "<span class='text--primary'>Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?",
+            message: 'Hello',
+            author: 'Vasya',
         },
-        { divider: true, inset: true },
         {
             avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
-            title:
-                'Summer BBQ <span class="grey--text text--lighten-1">4</span>',
-            subtitle:
-                "<span class='text--primary'>to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.",
+            message: 'Привет',
+            author: 'Petya',
         },
-        { divider: true, inset: true },
         {
             avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
-            title: 'Oui oui',
-            subtitle:
-                "<span class='text--primary'>Sandra Adams</span> &mdash; Do you have Paris recommendations? Have you ever been?",
+            message: 'Привiт',
+            author: 'Masha',
         },
     ];
+    public long_items = Array(100).fill(this.small_items[0]);
+    public items = this.long_items;
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.mes {
+    overflow-y: auto;
+}
+</style>

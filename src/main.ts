@@ -13,6 +13,7 @@ Axios.defaults.baseURL = process.env.baseURL;
 
 Vue.use(VueRx);
 Vue.use(VueChatScroll);
+
 new Vue({
     router,
     store,
