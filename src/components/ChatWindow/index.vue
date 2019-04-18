@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 import CurrentChat from '@/components/ChatWindow/CurrentChat/index.vue';
 import ChatList from '@/components/ChatWindow/ChatList/index.vue';
 
@@ -21,6 +21,7 @@ export default class ChatWindow extends Vue {}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped lang="scss">
 .chat {
     border: solid red;
