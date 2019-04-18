@@ -5,6 +5,7 @@
             placeholder="Placeholder"
             solo
             v-stream:input="input$"
+            ref="input"
         ></v-text-field>
         <p>{{ message$ }}</p>
     </form>
@@ -31,7 +32,10 @@ interface TextInputEvent {
                 withLatestFrom(message$),
                 map(([, message]) => message),
             )
-            .subscribe(this.sendMessage);
+            .subscribe((msg) => {
+                (this.$refs.input as any).reset();
+                this.sendMessage();
+            });
 
         return {
             message$,
