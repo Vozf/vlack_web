@@ -17,9 +17,7 @@ import CurrentChat from '@/components/ChatWindow/CurrentChat/index.vue';
 import ChatList from '@/components/ChatWindow/ChatList/index.vue';
 
 @Component({ components: { ChatList, CurrentChat } })
-export default class ChatWindow extends Vue {
-    @Prop() private msg!: string;
-}
+export default class ChatWindow extends Vue {}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

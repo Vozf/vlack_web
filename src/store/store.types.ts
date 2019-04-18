@@ -1,12 +1,12 @@
-export interface Message {
+export interface MessageType {
     message: string;
     avatar: string;
     author: string;
 }
-export interface MessagesState {
-    messages: Message[];
+export interface MessagesStateType {
+    messages: MessageType[];
 }
-export interface ChatListItem {
-    lastMessage: Message;
+export interface ChatListItemType {
+    lastMessage: MessageType;
     chatName: string;
 }

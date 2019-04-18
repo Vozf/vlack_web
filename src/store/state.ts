@@ -1,5 +1,5 @@
-import { MessagesState } from '@/store/store.types';
+import { MessagesStateType } from '@/store/store.types';
 
-export const state: MessagesState = {
+export const state: MessagesStateType = {
     messages: [],
 };

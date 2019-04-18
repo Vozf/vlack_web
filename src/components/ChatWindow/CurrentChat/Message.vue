@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { Message as MessageType } from '@/store/store.types';
+import { MessageType } from '@/store/store.types';
 
 @Component
 export default class Message extends Vue {
