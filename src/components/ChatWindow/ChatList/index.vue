@@ -12,13 +12,19 @@
 import { Component, Vue } from 'vue-property-decorator';
 import ChatListItem from '@/components/ChatWindow/ChatList/ChatListItem.vue';
 import { ChatListItemType } from '@/store/store.types';
-import { Getter } from 'vuex-class';
+import { Action, Getter } from 'vuex-class';
 
-@Component({
+@Component<ChatList>({
     components: { ChatListItem },
 })
 export default class ChatList extends Vue {
     @Getter public chatList!: () => ChatListItemType[];
+    @Action private fetchChatList!: () => void;
+
+    constructor(props: any) {
+        super(props);
+        this.fetchChatList();
+    }
 }
 </script>
 

@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import { EMPTY, Observable } from 'rxjs';
 import { of } from 'rxjs/internal/observable/of';
-import { ChatType } from '@/store/store.types';
+import { ChatListItemType, ChatType } from '@/store/store.types';
 
 export default {
     sendMessage(message: string): Observable<never> {
@@ -37,5 +37,28 @@ export default {
             chatName: 'Long Chat',
             messages: Array(100).fill(smallItems[0]),
         });
+    },
+
+    getChatList(): Observable<ChatListItemType[]> {
+        return of([
+            {
+                chatId: 1,
+                chatName: 'Barbeque',
+                lastMessage: {
+                    avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
+                    message: 'Привiт',
+                    author: 'Masha',
+                },
+            },
+            {
+                chatId: 2,
+                chatName: 'Long Barbeque',
+                lastMessage: {
+                    avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
+                    message: 'Привет',
+                    author: 'Petya',
+                },
+            },
+        ]);
     },
 };

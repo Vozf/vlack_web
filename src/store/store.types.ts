@@ -4,7 +4,7 @@ export interface MessageType {
     author: string;
 }
 export interface ChatStateType {
-    currentChat: ChatType;
+    currentChat?: ChatType;
     chats: ChatListItemType[];
     route:
         | {

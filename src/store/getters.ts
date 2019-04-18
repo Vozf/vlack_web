@@ -6,14 +6,8 @@ import {
 } from '@/store/store.types';
 
 export const getters: GetterTree<ChatStateType, ChatStateType> = {
-    currentMessages({
-        route,
-        chats,
-        currentChat: { messages },
-    }): MessageType[] {
-        const id = route.params.id;
-        const chat = chats.find(({ chatId }) => chatId === id);
-        return messages;
+    currentMessages({ currentChat }): MessageType[] | null {
+        return currentChat ? currentChat.messages : null;
     },
     chatList({ chats }): ChatListItemType[] {
         return chats;

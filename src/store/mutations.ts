@@ -8,4 +8,7 @@ export const mutations: MutationTree<ChatStateType> = {
     setCurrentChat(state, currentChat) {
         state.currentChat = currentChat;
     },
+    setChatList(state, chatList) {
+        state.chats = chatList;
+    },
 };
