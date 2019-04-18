@@ -6,6 +6,13 @@ export interface MessageType {
 export interface ChatStateType {
     currentChat: ChatType;
     chats: ChatListItemType[];
+    route:
+        | {
+              path: string;
+              params: any;
+              query: any;
+          }
+        | any;
 }
 interface ChatId {
     chatId: number;

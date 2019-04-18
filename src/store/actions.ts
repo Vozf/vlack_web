@@ -7,9 +7,13 @@ export const actions: ActionTree<ChatStateType, ChatStateType> = {
         commit('updateMessages', []);
     },
     async sendMessage({ dispatch, commit }, message) {
-        console.log(message);
         ChatWindowService.sendMessage(message).subscribe(() =>
             dispatch('updateMessages'),
+        );
+    },
+    async fetchCurrentChat({ dispatch, commit, state }, chatId) {
+        ChatWindowService.getChat(chatId).subscribe((currentChat) =>
+            commit('setCurrentChat', currentChat),
         );
     },
 };

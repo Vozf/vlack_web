@@ -5,4 +5,7 @@ export const mutations: MutationTree<ChatStateType> = {
     updateMessages(state, messages: MessageType[]) {
         // state.chats = messages;
     },
+    setCurrentChat(state, currentChat) {
+        state.currentChat = currentChat;
+    },
 };

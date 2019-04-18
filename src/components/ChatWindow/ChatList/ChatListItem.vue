@@ -1,16 +1,18 @@
 <template>
-    <v-list-tile avatar @click="">
-        <v-list-tile-avatar>
-            <img :src="item.lastMessage.avatar" />
-        </v-list-tile-avatar>
+    <router-link class="link" :to="item.chatId.toString()">
+        <v-list-tile avatar @click="">
+            <v-list-tile-avatar>
+                <img :src="item.lastMessage.avatar" />
+            </v-list-tile-avatar>
 
-        <v-list-tile-content>
-            <v-list-tile-title v-html="item.chatName"></v-list-tile-title>
-            <v-list-tile-sub-title
-                v-html="item.lastMessage.message"
-            ></v-list-tile-sub-title>
-        </v-list-tile-content>
-    </v-list-tile>
+            <v-list-tile-content>
+                <v-list-tile-title v-html="item.chatName"></v-list-tile-title>
+                <v-list-tile-sub-title
+                    v-html="item.lastMessage.message"
+                ></v-list-tile-sub-title>
+            </v-list-tile-content>
+        </v-list-tile>
+    </router-link>
 </template>
 
 <script lang="ts">
@@ -24,4 +26,8 @@ export default class ChatListItem extends Vue {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.link {
+    color: inherit;
+}
+</style>

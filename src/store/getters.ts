@@ -1,15 +1,24 @@
-import { Getter, GetterTree } from 'vuex';
-import { ChatListItemType, ChatStateType } from '@/store/store.types';
+import { GetterTree } from 'vuex';
+import {
+    ChatListItemType,
+    ChatStateType,
+    MessageType,
+} from '@/store/store.types';
 
 export const getters: GetterTree<ChatStateType, ChatStateType> = {
-    currentChat({
-        currentChat: { chatId: currentChatId },
+    currentMessages({
+        route,
         chats,
-    }): ChatListItemType | undefined {
-        const chat = chats.find(({ chatId }) => chatId === currentChatId);
-        return chat;
+        currentChat: { messages },
+    }): MessageType[] {
+        const id = route.params.id;
+        const chat = chats.find(({ chatId }) => chatId === id);
+        return messages;
     },
     chatList({ chats }): ChatListItemType[] {
         return chats;
+    },
+    route({ route }) {
+        return route;
     },
 };

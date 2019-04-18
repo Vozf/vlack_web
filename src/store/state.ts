@@ -33,4 +33,5 @@ export const state: ChatStateType = {
             lastMessage: messages[0],
         },
     ],
+    route: {},
 };

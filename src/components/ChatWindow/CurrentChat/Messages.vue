@@ -3,7 +3,7 @@
         <v-flex shrink class="mes" v-chat-scroll>
             <v-list>
                 <Message
-                    v-for="(item, index) in items"
+                    v-for="(item, index) in currentMessages"
                     :item="item"
                     :key="index"
                 />
@@ -16,30 +16,13 @@
 import { Component, Vue } from 'vue-property-decorator';
 import Message from '@/components/ChatWindow/CurrentChat/Message.vue';
 import { MessageType } from '@/store/store.types';
+import { Getter } from 'vuex-class';
 
 @Component({
     components: { Message },
 })
 export default class Messages extends Vue {
-    public smallItems = [
-        {
-            avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-            message: 'Hello',
-            author: 'Vasya',
-        },
-        {
-            avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
-            message: 'Привет',
-            author: 'Petya',
-        },
-        {
-            avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
-            message: 'Привiт',
-            author: 'Masha',
-        },
-    ];
-    public longItems = Array(100).fill(this.smallItems[0]);
-    public items: MessageType[] = this.smallItems;
+    @Getter public currentMessages!: () => MessageType[];
 }
 </script>
 
