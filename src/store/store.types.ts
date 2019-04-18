@@ -3,10 +3,17 @@ export interface MessageType {
     avatar: string;
     author: string;
 }
-export interface MessagesStateType {
-    messages: MessageType[];
+export interface ChatStateType {
+    currentChat: ChatType;
+    chats: ChatListItemType[];
 }
-export interface ChatListItemType {
-    lastMessage: MessageType;
+interface ChatId {
+    chatId: number;
     chatName: string;
+}
+export interface ChatListItemType extends ChatId {
+    lastMessage: MessageType;
+}
+export interface ChatType extends ChatId {
+    messages: MessageType[];
 }

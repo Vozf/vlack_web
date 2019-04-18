@@ -1,7 +1,7 @@
 <template>
     <v-list class="chats">
         <ChatListItem
-            v-for="(item, index) in chats"
+            v-for="(item, index) in chatList"
             :item="item"
             :key="index"
         />
@@ -12,24 +12,13 @@
 import { Component, Vue } from 'vue-property-decorator';
 import ChatListItem from '@/components/ChatWindow/ChatList/ChatListItem.vue';
 import { ChatListItemType } from '@/store/store.types';
+import { Getter } from 'vuex-class';
 
 @Component({
     components: { ChatListItem },
 })
 export default class ChatList extends Vue {
-    public shortChats: ChatListItemType[] = [
-        {
-            lastMessage: {
-                message: 'last message',
-                author: 'Vasya',
-                avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-            },
-            chatName: 'Barbeque',
-        },
-    ];
-
-    public longChats = Array(100).fill(this.shortChats[0]);
-    public chats: ChatListItemType[] = this.longChats;
+    @Getter public chatList!: () => ChatListItemType[];
 }
 </script>
 

@@ -1,8 +1,8 @@
 import { MutationTree } from 'vuex';
-import { MessageType, MessagesStateType } from '@/store/store.types';
+import { MessageType, ChatStateType } from '@/store/store.types';
 
-export const mutations: MutationTree<MessagesStateType> = {
+export const mutations: MutationTree<ChatStateType> = {
     updateMessages(state, messages: MessageType[]) {
-        state.messages = messages;
+        // state.chats = messages;
     },
 };

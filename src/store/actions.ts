@@ -1,8 +1,8 @@
 import { ActionTree } from 'vuex';
-import { MessagesStateType } from '@/store/store.types';
+import { ChatStateType } from '@/store/store.types';
 import ChatWindowService from '@/components/ChatWindowService';
 
-export const actions: ActionTree<MessagesStateType, MessagesStateType> = {
+export const actions: ActionTree<ChatStateType, ChatStateType> = {
     updateMessages({ commit }) {
         commit('updateMessages', []);
     },
