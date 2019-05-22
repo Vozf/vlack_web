@@ -34,7 +34,7 @@ interface TextInputEvent {
             )
             .subscribe((msg) => {
                 (this.$refs.input as any).reset();
-                this.sendMessage();
+                this.sendMessage(msg);
             });
 
         return {
@@ -45,7 +45,7 @@ interface TextInputEvent {
 export default class NewMessage extends Vue {
     private input$: Subject<TextInputEvent> = new Subject();
     private submit$: Subject<any> = new Subject();
-    @Action('sendMessage') private sendMessage!: () => void;
+    @Action('sendMessage') private sendMessage!: (message: string) => void;
 }
 </script>
 

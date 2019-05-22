@@ -1,11 +1,14 @@
-import Axios from 'axios';
+import Axios from 'axios-observable';
 import { EMPTY, Observable } from 'rxjs';
 import { of } from 'rxjs/internal/observable/of';
 import { ChatListItemType, ChatType } from '@/store/store.types';
+import { mergeMapTo } from 'rxjs/operators';
 
 export default {
     sendMessage(message: string): Observable<never> {
-        return EMPTY;
+        return Axios.post('chats/1', { value: message, userId: 2 }).pipe(
+            mergeMapTo(EMPTY),
+        );
     },
     getChat(id: number): Observable<ChatType> {
         const smallItems = [
