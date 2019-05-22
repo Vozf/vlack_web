@@ -1,7 +1,7 @@
 export interface MessageType {
-    message: string;
-    avatar: string;
-    author: string;
+    value: string;
+    avatarURL: string;
+    authorName: string;
 }
 export interface ChatStateType {
     currentChat?: ChatType;
@@ -14,13 +14,15 @@ export interface ChatStateType {
           }
         | any;
 }
-interface ChatId {
-    chatId: number;
-    chatName: string;
+interface Chat {
+    id: number;
+    title: string;
 }
-export interface ChatListItemType extends ChatId {
+export interface ChatListItemType {
+    chat: Chat;
     lastMessage: MessageType;
 }
-export interface ChatType extends ChatId {
+export interface ChatType {
+    chat: Chat;
     messages: MessageType[];
 }

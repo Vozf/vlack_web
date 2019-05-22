@@ -13,31 +13,35 @@ export default {
     getChat(id: number): Observable<ChatType> {
         const smallItems = [
             {
-                avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-                message: 'Hello',
-                author: 'Vasya',
+                avatarURL: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
+                value: 'Hello',
+                authorName: 'Vasya',
             },
             {
-                avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
-                message: 'Привет',
-                author: 'Petya',
+                avatarURL: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
+                value: 'Привет',
+                authorName: 'Petya',
             },
             {
-                avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
-                message: 'Привiт',
-                author: 'Masha',
+                avatarURL: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
+                value: 'Привiт',
+                authorName: 'Masha',
             },
         ];
         if (id === 1) {
             return of({
-                chatId: 1,
-                chatName: 'Barbeque',
+                chat: {
+                    id: 1,
+                    title: 'Barbeque',
+                },
                 messages: smallItems,
             });
         }
         return of({
-            chatId: id,
-            chatName: 'Long Chat',
+            chat: {
+                id,
+                title: 'Long Chat',
+            },
             messages: Array(100).fill(smallItems[0]),
         });
     },
@@ -45,21 +49,25 @@ export default {
     getChatList(): Observable<ChatListItemType[]> {
         return of([
             {
-                chatId: 1,
-                chatName: 'Barbeque',
+                chat: {
+                    id: 1,
+                    title: 'Barbeque',
+                },
                 lastMessage: {
-                    avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
-                    message: 'Привiт',
-                    author: 'Masha',
+                    avatarURL: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
+                    value: 'Привiт',
+                    authorName: 'Masha',
                 },
             },
             {
-                chatId: 2,
-                chatName: 'Long Barbeque',
+                chat: {
+                    id: 2,
+                    title: 'Long Barbeque',
+                },
                 lastMessage: {
-                    avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
-                    message: 'Привет',
-                    author: 'Petya',
+                    avatarURL: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
+                    value: 'Привет',
+                    authorName: 'Petya',
                 },
             },
         ]);
