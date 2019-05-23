@@ -1,4 +1,4 @@
-import { ChatStateType } from '@/store/store.types';
+import { ChatStateType } from '@/store/chat/types';
 
 export const state: ChatStateType = {
     currentChat: undefined,

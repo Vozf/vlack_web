@@ -4,9 +4,10 @@ import {
     ChatListItemType,
     ChatStateType,
     MessageType,
-} from '@/store/store.types';
+} from '@/store/chat/types';
+import { RootState } from '@/store/types';
 
-export const getters: GetterTree<ChatStateType, ChatStateType> = {
+export const getters: GetterTree<ChatStateType, RootState> = {
     currentMessages({ currentChat }): MessageType[] | undefined {
         return currentChat && currentChat.messages;
     },

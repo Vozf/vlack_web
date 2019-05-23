@@ -1,6 +1,6 @@
 import Axios from 'axios-observable';
 import { Observable } from 'rxjs';
-import { ChatListItemType, ChatType } from '@/store/store.types';
+import { ChatListItemType, ChatType } from '@/store/chat/types';
 import { mapTo, pluck } from 'rxjs/operators';
 
 export default {

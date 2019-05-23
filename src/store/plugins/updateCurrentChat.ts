@@ -1,4 +1,4 @@
-import { ChatStateType } from '@/store/store.types';
+import { ChatStateType } from '@/store/chat/types';
 import { Store } from 'vuex';
 
 export const updatedCurrentChat = (store: Store<ChatStateType>) => {

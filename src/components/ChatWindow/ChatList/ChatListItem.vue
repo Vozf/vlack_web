@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { ChatListItemType } from '@/store/store.types';
+import { ChatListItemType } from '@/store/chat/types';
 
 @Component
 export default class ChatListItem extends Vue {

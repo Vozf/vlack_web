@@ -20,7 +20,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { MessageType } from '@/store/store.types';
+import { MessageType } from '@/store/chat/types';
 
 @Component
 export default class Message extends Vue {

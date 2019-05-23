@@ -15,7 +15,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import Message from '@/components/ChatWindow/CurrentChat/Message.vue';
-import { MessageType } from '@/store/store.types';
+import { MessageType } from '@/store/chat/types';
 import { Getter } from 'vuex-class';
 
 @Component({

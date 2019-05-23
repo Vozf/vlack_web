@@ -15,7 +15,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import ChatListItem from '@/components/ChatWindow/ChatList/ChatListItem.vue';
-import { ChatInfo, ChatListItemType } from '@/store/store.types';
+import { ChatInfo, ChatListItemType } from '@/store/chat/types';
 import { Action, Getter } from 'vuex-class';
 
 @Component<ChatList>({
