@@ -2,6 +2,7 @@ export interface MessageType {
     value: string;
     avatarURL: string;
     authorName: string;
+    createdAt: Date;
 }
 export interface ChatStateType {
     currentChat?: ChatType;
