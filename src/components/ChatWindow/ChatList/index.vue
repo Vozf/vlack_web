@@ -1,9 +1,13 @@
 <template>
-    <v-list class="chats">
+    <v-list class="chats" three-line>
         <ChatListItem
             v-for="(item, index) in chatList"
             :item="item"
             :key="index"
+            :current="
+                (item.chat && item.chat.id) ===
+                    (currentChatInfo && currentChatInfo.id)
+            "
         />
     </v-list>
 </template>
@@ -11,7 +15,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import ChatListItem from '@/components/ChatWindow/ChatList/ChatListItem.vue';
-import { ChatListItemType } from '@/store/store.types';
+import { ChatInfo, ChatListItemType } from '@/store/store.types';
 import { Action, Getter } from 'vuex-class';
 
 @Component<ChatList>({
@@ -19,6 +23,7 @@ import { Action, Getter } from 'vuex-class';
 })
 export default class ChatList extends Vue {
     @Getter public chatList!: () => ChatListItemType[];
+    @Getter public currentChatInfo!: () => ChatInfo;
     @Action private fetchChatList!: () => void;
 
     constructor(props: any) {

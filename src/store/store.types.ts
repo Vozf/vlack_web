@@ -14,15 +14,15 @@ export interface ChatStateType {
           }
         | any;
 }
-interface Chat {
+export interface ChatInfo {
     id: number;
     title: string;
 }
 export interface ChatListItemType {
-    chat: Chat;
+    chat: ChatInfo;
     lastMessage: MessageType;
 }
 export interface ChatType {
-    chat: Chat;
+    chat: ChatInfo;
     messages: MessageType[];
 }
