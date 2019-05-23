@@ -2,7 +2,7 @@
     <form v-stream:submit.prevent="submit$">
         <v-text-field
             label="Solo"
-            placeholder="Placeholder"
+            placeholder="New Message"
             solo
             v-stream:input="input$"
             ref="input"
