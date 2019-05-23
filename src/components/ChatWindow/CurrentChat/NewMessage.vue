@@ -7,7 +7,6 @@
             v-stream:input="input$"
             ref="input"
         ></v-text-field>
-        <p>{{ message$ }}</p>
     </form>
 </template>
 

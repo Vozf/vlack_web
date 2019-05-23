@@ -1,5 +1,5 @@
 <template>
-    <v-container fill-height pb-0>
+    <v-container class="cont" fill-height pb-0>
         <v-layout column justify-end>
             <v-flex class="messages">
                 <Messages />
@@ -24,6 +24,9 @@ export default class CurrentChat extends Vue {}
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.cont {
+    max-width: 100%;
+}
 .messages {
     height: 0;
 }
