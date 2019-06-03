@@ -1,16 +1,20 @@
 import Vue from 'vue';
 import './plugins/vuetify';
 import App from './App.vue';
-import router from './router';
+import router from './router/router';
 import store from './store/store';
 import Axios from 'axios-observable';
 import VueRx from 'vue-rx';
 import VueChatScroll from 'vue-chat-scroll';
 import { sync } from 'vuex-router-sync';
+import { onError, beforeRequestSuccess } from './interceptors/Jwt';
 
 Vue.config.productionTip = false;
 
 Axios.defaults.baseURL = process.env.VUE_APP_BASE_API_URL;
+
+Axios.interceptors.request.use(beforeRequestSuccess, undefined);
+Axios.interceptors.response.use(undefined, onError);
 
 Vue.use(VueRx);
 Vue.use(VueChatScroll);

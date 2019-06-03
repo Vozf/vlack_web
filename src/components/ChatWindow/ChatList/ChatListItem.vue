@@ -1,5 +1,5 @@
 <template>
-    <router-link class="link" :to="item.chat.id.toString()">
+    <router-link class="link" :to="'/chats/' + item.chat.id.toString()">
         <v-list-tile avatar @click="" :class="{ current: current }">
             <v-list-tile-avatar>
                 <img :src="item.lastMessage.avatarURL" />
