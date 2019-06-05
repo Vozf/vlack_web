@@ -15,10 +15,10 @@
                                     <span>Source</span>
                                 </v-tooltip>
                             </v-toolbar>
-                            <v-card-text>
-                                <v-form>
+                            <v-form @keyup.enter.native="loginUser">
+                                <v-card-text>
                                     <v-text-field
-                                        v-model="user.username"
+                                        v-model="user.login"
                                         prepend-icon="person"
                                         name="login"
                                         label="Login"
@@ -32,14 +32,14 @@
                                         id="password"
                                         type="password"
                                     ></v-text-field>
-                                </v-form>
-                            </v-card-text>
-                            <v-card-actions>
-                                <v-spacer></v-spacer>
-                                <v-btn @click="loginUser" color="primary"
-                                    >Login</v-btn
-                                >
-                            </v-card-actions>
+                                </v-card-text>
+                                <v-card-actions>
+                                    <v-spacer></v-spacer>
+                                    <v-btn @click="loginUser" color="primary"
+                                        >Login
+                                    </v-btn>
+                                </v-card-actions>
+                            </v-form>
                         </v-card>
                     </v-flex>
                 </v-layout>
@@ -51,13 +51,14 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { Action } from 'vuex-class';
+import { LoginCredentials } from '@/store/auth/types';
 
 @Component
 export default class Login extends Vue {
-    @Action private login!: (user: any) => void;
-    user = { username: '', password: '' };
+    public user: LoginCredentials = { login: '', password: '' };
+    @Action private login!: (user: LoginCredentials) => void;
 
-    loginUser() {
+    public loginUser() {
         this.login(this.user);
     }
 }

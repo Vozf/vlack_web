@@ -1,22 +1,23 @@
 import { ActionTree } from 'vuex';
-import AuthService from '@/interceptors/AuthService';
+import AuthService from '@/components/Auth/AuthService';
 import { RootState } from '@/store/types';
 import { AuthStateType } from '@/store/auth/types';
+import jwt_decode from 'jwt-decode';
+import router from '@/router/router';
 
 export const actions: ActionTree<AuthStateType, RootState> = {
-    async login({ commit }, credentials) {
-        return AuthService.login(credentials).then((data) => {
-            commit('setLoggedIn', true);
-            commit('setUser', data.user);
-            commit('setAccessToken', data.token.access);
-            commit('setRefreshToken', data.token.refresh);
+    async login({ commit }, credentials: { login: string; password: string }) {
+        return AuthService.login(credentials).subscribe((jwt) => {
+            const { jwt: user } = jwt_decode(jwt);
+            commit('setUser', user);
+            commit('setToken', jwt);
+            router.push('/chats');
         });
     },
 
     async logout({ commit }) {
-        commit('setLoggedIn', false);
-        commit('setUser', false);
-        commit('clearAccessToken', false);
-        commit('clearRefreshToken', false);
+        commit('setUser', null);
+        commit('clearToken', null);
+        router.push('/login');
     },
 };

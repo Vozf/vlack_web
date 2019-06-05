@@ -9,19 +9,12 @@
                                 <v-toolbar-title>Register</v-toolbar-title>
                             </v-toolbar>
                             <v-card-text>
-                                <v-form>
+                                <v-form @keyup.enter.native="register">
                                     <v-text-field
-                                        v-model="user.username"
+                                        v-model="user.login"
                                         prepend-icon="person"
                                         name="login"
                                         label="Login"
-                                        type="text"
-                                    ></v-text-field>
-                                    <v-text-field
-                                        v-model="user.email"
-                                        prepend-icon="person"
-                                        name="email"
-                                        label="Email"
                                         type="text"
                                     ></v-text-field>
                                     <v-text-field
@@ -31,6 +24,20 @@
                                         label="Password"
                                         id="password"
                                         type="password"
+                                    ></v-text-field>
+                                    <v-text-field
+                                        v-model="user.name"
+                                        prepend-icon="person"
+                                        name="name"
+                                        label="Name"
+                                        type="text"
+                                    ></v-text-field>
+                                    <v-text-field
+                                        v-model="user.avatarURL"
+                                        prepend-icon="face"
+                                        name="avatarURL"
+                                        label="Avatar URL"
+                                        type="text"
                                     ></v-text-field>
                                 </v-form>
                             </v-card-text>
@@ -51,17 +58,18 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { Action } from 'vuex-class';
-import AuthService from '../../interceptors/AuthService';
+import AuthService from './AuthService';
+import { LoginCredentials } from '@/store/auth/types';
 
 @Component
 export default class Register extends Vue {
-    @Action private login!: (user: any) => void;
-    user = { username: '', password: '', email: '' };
+    public user = { login: '', password: '', avatarURL: '', name: '' };
+    @Action private login!: (user: LoginCredentials) => void;
 
-    register() {
-        AuthService.register(this.user).then(() =>
+    public register() {
+        AuthService.register(this.user).subscribe(() =>
             this.login({
-                username: this.user.username,
+                login: this.user.login,
                 password: this.user.password,
             }),
         );

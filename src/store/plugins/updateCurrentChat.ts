@@ -8,7 +8,7 @@ export const updatedCurrentChat = (store: Store<ChatStateType>) => {
             mutation.payload.to.name === 'chat' &&
             mutation.payload.to.params.id
         ) {
-            store.dispatch('fetchCurrentChat', +mutation.payload.to.params.id);
+            store.dispatch('changeCurrentChat', +mutation.payload.to.params.id);
         }
     });
 };

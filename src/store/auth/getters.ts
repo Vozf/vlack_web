@@ -7,13 +7,10 @@ export const getters: GetterTree<AuthStateType, RootState> = {
         return state.user;
     },
     loggedin(state) {
-        return state.loggedin;
+        return state.user && state.token;
     },
-    accesstoken(state) {
-        return state.tokens.access;
-    },
-    refreshtoken(state) {
-        return state.tokens.refresh;
+    token(state) {
+        return state.token;
     },
     auth(state) {
         return state;

@@ -6,25 +6,14 @@ export const mutations: MutationTree<AuthStateType> = {
         state.user = user;
     },
     clearUser(state) {
-        state.user = false;
+        state.user = null;
     },
-    setAccessToken(state, token) {
+    setToken(state, token) {
         localStorage.setItem('accessToken', token);
-        state.tokens.access = token;
+        state.token = token;
     },
-    clearAccessToken(state) {
+    clearToken(state) {
         localStorage.removeItem('accessToken');
-        state.tokens.access = null;
-    },
-    setRefreshToken(state, token) {
-        localStorage.setItem('refreshToken', token);
-        state.tokens.refresh = token;
-    },
-    clearRefreshToken(state) {
-        localStorage.removeItem('refreshToken');
-        state.tokens.refresh = null;
-    },
-    setLoggedIn(state, status) {
-        state.loggedin = status;
+        state.token = null;
     },
 };
