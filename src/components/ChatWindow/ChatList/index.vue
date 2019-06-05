@@ -5,7 +5,13 @@
         <CurrentUser />
         <v-divider inset></v-divider>
 
-        <v-subheader inset>Chats</v-subheader>
+        <v-subheader inset>
+            Chats
+            <v-spacer />
+            <v-btn flat icon @click="reload">
+                <v-icon>autorenew</v-icon>
+            </v-btn>
+        </v-subheader>
         <ChatListItem
             v-for="(item, index) in chatList"
             :item="item"
@@ -32,10 +38,17 @@ export default class ChatList extends Vue {
     @Getter public chatList!: () => ChatListItemType[];
     @Getter public currentChatInfo!: () => ChatInfo;
     @Action private fetchChatList!: () => void;
+    @Action private fetchCurrentChat!: () => void;
 
     constructor(props: any) {
         super(props);
         this.fetchChatList();
+    }
+
+    public reload() {
+        this.fetchChatList();
+
+        this.fetchCurrentChat();
     }
 }
 </script>
@@ -45,5 +58,9 @@ export default class ChatList extends Vue {
 .chats {
     height: 100%;
     overflow-y: auto;
+}
+
+.reload {
+    margin-right: 50px;
 }
 </style>

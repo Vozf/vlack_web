@@ -12,7 +12,8 @@
                                     <template v-slot:activator="{ on }">
                                         <v-icon v-on="on">info</v-icon>
                                     </template>
-                                    <span>Source</span>
+                                    <div>Login - login</div>
+                                    <div>Password - password</div>
                                 </v-tooltip>
                             </v-toolbar>
                             <v-form @keyup.enter.native="loginUser">
@@ -34,6 +35,9 @@
                                     ></v-text-field>
                                 </v-card-text>
                                 <v-card-actions>
+                                    <router-link class="link" to="/register">
+                                        <v-btn flat>Register</v-btn>
+                                    </router-link>
                                     <v-spacer></v-spacer>
                                     <v-btn @click="loginUser" color="primary"
                                         >Login

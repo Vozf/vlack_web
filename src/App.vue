@@ -2,7 +2,9 @@
     <v-app class="app">
         <v-toolbar app>
             <v-toolbar-title class="headline text-uppercase">
-                <span>Vlack</span>
+                <router-link class="link" to="/">
+                    <span>Vlack</span>
+                </router-link>
             </v-toolbar-title>
         </v-toolbar>
         <v-content class="content">
@@ -22,5 +24,9 @@ body,
 .app,
 .content {
     height: 100%;
+}
+.link {
+    color: inherit;
+    text-decoration: none;
 }
 </style>
