@@ -1,7 +1,7 @@
 <template>
     <v-list-tile avatar @click="">
         <v-list-tile-avatar>
-            <img :src="item.avatarURL" />
+            <avatar :name="item.authorName" :src="item.avatarURL"></avatar>
         </v-list-tile-avatar>
 
         <v-list-tile-content>
@@ -21,8 +21,13 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { MessageType } from '@/store/chat/types';
+import Avatar from '@/components/Util/Avatar.vue';
 
-@Component
+@Component({
+    components: {
+        Avatar,
+    },
+})
 export default class Message extends Vue {
     @Prop() public readonly item!: MessageType;
 }

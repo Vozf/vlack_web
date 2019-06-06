@@ -1,8 +1,11 @@
 <template>
     <router-link class="link" :to="'/chats/' + item.chat.id.toString()">
         <v-list-tile avatar @click="" :class="{ current: current }">
-            <v-list-tile-avatar>
-                <img :src="item.lastMessage.avatarURL" />
+            <v-list-tile-avatar class="avatar">
+                <avatar
+                    :name="item.lastMessage.authorName"
+                    :src="item.lastMessage.avatarURL"
+                ></avatar>
             </v-list-tile-avatar>
 
             <v-list-tile-content>
@@ -18,8 +21,13 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { ChatListItemType } from '@/store/chat/types';
+import Avatar from '@/components/Util/Avatar.vue';
 
-@Component
+@Component({
+    components: {
+        Avatar,
+    },
+})
 export default class ChatListItem extends Vue {
     @Prop() public readonly item!: ChatListItemType;
     @Prop() public readonly current!: boolean;
@@ -33,5 +41,8 @@ export default class ChatListItem extends Vue {
 }
 .link {
     color: inherit;
+}
+.avatar {
+    margin-top: 0;
 }
 </style>

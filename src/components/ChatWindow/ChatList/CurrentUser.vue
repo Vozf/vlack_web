@@ -1,7 +1,7 @@
 <template>
     <v-list-tile avatar @click="">
-        <v-list-tile-avatar>
-            <img :src="user.avatarURL" />
+        <v-list-tile-avatar class="avatar">
+            <avatar name="Jane Doe"></avatar>
         </v-list-tile-avatar>
 
         <v-list-tile-content>
@@ -18,8 +18,13 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { User } from '@/store/auth/types';
 import { Action, Getter } from 'vuex-class';
+import Avatar from '@/components/Util/Avatar.vue';
 
-@Component
+@Component({
+    components: {
+        Avatar,
+    },
+})
 export default class CurrentUser extends Vue {
     @Getter public user!: () => User;
     @Action private logout!: () => void;
@@ -27,4 +32,8 @@ export default class CurrentUser extends Vue {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.avatar {
+    margin-top: 0;
+}
+</style>
