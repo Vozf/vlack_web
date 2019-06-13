@@ -9,10 +9,7 @@ export const actions: ActionTree<ChatStateType, RootState> = {
         if (!chatId) {
             return;
         }
-        ChatWindowService.sendMessage(chatId, message).subscribe(() => {
-            dispatch('fetchCurrentChat', chatId);
-            dispatch('fetchChatList', chatId);
-        });
+        ChatWindowService.sendMessage(chatId, message).subscribe();
     },
     async fetchCurrentChat({ commit, state }) {
         if (!state.currentChat) {

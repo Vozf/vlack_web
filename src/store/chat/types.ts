@@ -1,6 +1,6 @@
 export interface MessageType {
     value: string;
-    avatarURL: string;
+    avatarURL: string | undefined;
     authorName: string;
     createdAt: Date;
 }

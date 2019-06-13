@@ -33,3 +33,10 @@ yarn run lint
 ### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+example .env
+
+```
+VUE_APP_BASE_API_URL=http://localhost:3000
+VUE_APP_BASE_WS_URL=ws://localhost:3000
+```
