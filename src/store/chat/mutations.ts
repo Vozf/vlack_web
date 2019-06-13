@@ -1,5 +1,5 @@
 import { MutationTree } from 'vuex';
-import { ChatStateType } from '@/store/chat/types';
+import { ChatStateType, SocketMsgResponseType } from '@/store/chat/types';
 import Vue from 'vue';
 
 export const mutations: MutationTree<ChatStateType> = {
@@ -11,14 +11,9 @@ export const mutations: MutationTree<ChatStateType> = {
     },
     SOCKET_ONMESSAGE(state, message) {
         switch (message.msgType) {
-            case 'NewMessageType': {
+            case SocketMsgResponseType.NewMessage: {
                 const chatId = message.payload.chatId;
-                const messageToAdd = {
-                    value: message.payload.value,
-                    authorName: 'Someone',
-                    createdAt: new Date(),
-                    avatarURL: undefined,
-                };
+                const messageToAdd = message.payload;
                 if (state.currentChat && state.currentChat.chat.id === chatId) {
                     state.currentChat.messages.push(messageToAdd);
                 }

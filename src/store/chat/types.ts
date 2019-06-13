@@ -27,3 +27,9 @@ export interface ChatType {
     chat: ChatInfo;
     messages: MessageType[];
 }
+export enum SocketMsgRequestType {
+    NewMessage = 'NewMessageRequestType',
+}
+export enum SocketMsgResponseType {
+    NewMessage = 'NewMessageResponseType',
+}
