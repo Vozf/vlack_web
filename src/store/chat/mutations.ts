@@ -30,4 +30,5 @@ export const mutations: MutationTree<ChatStateType> = {
     SOCKET_ONOPEN(state, event) {
         Vue.prototype.$socket = event.currentTarget;
     },
+    SOCKET_ONCLOSE() {},
 };

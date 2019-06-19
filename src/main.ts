@@ -24,6 +24,9 @@ sync(store, router);
 Vue.use(VueNativeSock, process.env.VUE_APP_BASE_WS_URL, {
     store,
     format: 'json',
+    reconnection: true,
+    reconnectionAttempts: 5,
+    reconnectionDelay: 3000,
 });
 
 new Vue({
