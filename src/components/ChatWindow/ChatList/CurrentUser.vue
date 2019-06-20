@@ -1,7 +1,7 @@
 <template>
     <v-list-tile avatar @click="">
         <v-list-tile-avatar class="avatar">
-            <avatar name="Jane Doe"></avatar>
+            <avatar :name="user.name" :src="user.avatarURL"></avatar>
         </v-list-tile-avatar>
 
         <v-list-tile-content>
