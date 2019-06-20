@@ -1,5 +1,7 @@
 # vlack_web
 
+## Available at https://vlack.herokuapp.com
+
 ## Project setup
 
 ```
